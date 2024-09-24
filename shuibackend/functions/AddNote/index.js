@@ -12,23 +12,27 @@ export const handler = async (event) => {
             return sendError(405, "Method not allowed");
         }
         // hämta ny note från request body
-        const newNote = JSON.parse(event.body);
+        const {username, text }  = JSON.parse(event.body);
 
         const maxTextLength = 500;
 
         //Validera att nödvändiga fält finns.
-        if (!newNote.username || !newNote.text || newNote.text.length > maxTextLength) {
-            return sendError(400, `Invalid input: "note" and "text" fields are required, and "text" must not exceed ${ maxTextLength } tekken`);
+        if (!username || !text || text.length > maxTextLength) {
+            return sendError(400, `Invalid input: "username" and "text" fields are required, and "text" must not exceed ${ maxTextLength } tekken`);
         }
 
         const newId = uuidv4();
 
-        const createdAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+        const now = new Date();
+        const timeZoneOffset = 2 * 60 * 60 * 1000; //Justering av tidszon, latmansversion
+        const localTime = new Date(now.getTime() + timeZoneOffset);
+
+        const createdAt = localTime.toISOString().slice(0, 16).replace('T', ' ');
                 
         const addedNote = {
             id: newId,
-            username: newNote.username,
-            text: newNote.text,
+            username: username,
+            text: text,
             createdAt: createdAt
         };
 
