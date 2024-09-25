@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import NoteForm from "../components/NoteForm";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function EditNotePage() {
     const { id } = useParams();
     const [initialText, setInitialText] = useState("");
@@ -11,7 +13,7 @@ function EditNotePage() {
 
     useEffect(() => {
         if (id) {
-            fetch(`/api/notes/${id}`)
+            fetch(`${API_URL}/notes/${id}`)
                 .then((response) => response.json())
                 .then((data) => {
                     setInitialText(data.text);
@@ -20,9 +22,9 @@ function EditNotePage() {
         }
     }, [id]);
 
-    const handleFormSubmit = (text) => {
+    const handleFormSubmit = ({ text, username }) => {
         const method = id ? "PUT" : "POST";
-        const url = id ? `/api/notes/${id}` : `/api/notes`;
+        const url = id ? `${API_URL}/notes/${id}` : `${API_URL}/notes`;
 
         fetch(url, {
             method: method,

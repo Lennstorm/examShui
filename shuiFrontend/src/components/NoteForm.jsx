@@ -11,15 +11,15 @@ function NoteForm({ initialText = "", initialUsername = "", onSubmit, isEditing 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (text.trim()) {
-            onSubmit(text, username);  // Skicka tillbaka texten till föräldern vid submit
+        if (text.trim() && username.trim()) {
+            onSubmit({ text, username });  // Skicka tillbaka texten till föräldern vid submit
         }
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <input 
-                tupe="text"
+                type="text"
                 value={username}
                 readOnly={isEditing} // read-only vid redigering av note
                 placeholder='Användarnamn'
