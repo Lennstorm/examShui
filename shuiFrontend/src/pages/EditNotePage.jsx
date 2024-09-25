@@ -29,9 +29,10 @@ function EditNotePage() {
         fetch(url, {
             method: method,
             headers: {
-                "Content-Type": "application/json",
+                "content-type": "application/json",
             },
             body: JSON.stringify({ text, username }),
+            mode: 'cors'
         }).then(() => {
             navigate("/notes"); //Tillbaka till notes-sidan efter sparad note
         });
