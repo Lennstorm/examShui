@@ -13,6 +13,8 @@ provider:
   deploymentMethod: direct
   iam:
     role: ${file(./local.yml):iamRole}
+  httpApi:
+    cors: true
 
 build:
   esbuild:
