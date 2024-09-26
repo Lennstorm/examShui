@@ -33,7 +33,7 @@ exports.handler = async (event) => {
         const localTime = new Date(now.getTime() + timeZoneOffset);
         const editedAt = localTime.toISOString().slice(0, 16).replace('T', ' ');
 
-        const updatedText = `${text}\n\n(Edited at: ${editedAt})`;
+        const updatedText = `${text}\n\n--Edited at: ${editedAt}`;
 
         //uppdatera posten i DynamoDB
         await db.update({
