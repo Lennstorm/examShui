@@ -18,3 +18,10 @@
 .deleteButton, .cancelButton, .inputForm_btn, .inputForm_textArea, .userNameField {
     margin: 1rem;
 }
+
+.error-message {
+    background-color: yellow;
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
