@@ -1,1 +1,4 @@
 /* Styling för själva pratbubblorna */
+.noteCard-wrapper {
+    max-width: 10rem;
+}

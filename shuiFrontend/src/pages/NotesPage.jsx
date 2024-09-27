@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NoteCard from "../components/NoteCard";
+import './NotesPage.css'
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -58,7 +59,7 @@ function NotesPage() {
     }
 
     return (
-        <div>
+        <div className="notesPage-wrapper">
             {notes.map((note) => (
                 <NoteCard key={note.id} note={note} onDelete={handleDelete} />
             ))}

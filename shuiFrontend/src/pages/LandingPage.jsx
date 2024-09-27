@@ -31,10 +31,10 @@ function LandingPage() {
     }
 
     return (
-        <div>
-            <h1>Välkommen till tramstavlan!</h1>
-            {!notesExist && <h2>Ingen har tramsat ännu</h2>}
-            {!notesExist && <Link className="editButton" to="/new">tramsa</Link>}
+        <div className="landingPage-wrapper">
+            <h1 className="landingPage-headline">Välkommen till tramstavlan!</h1>
+            {!notesExist && <h2 className="landingPage-underline">Ingen har tramsat ännu</h2>}
+            {!notesExist && <Link className="editButton" to="/new">Tramsa!</Link>}
         </div>
     );
 }

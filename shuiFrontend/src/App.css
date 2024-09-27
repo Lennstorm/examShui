@@ -1,19 +1,31 @@
-#root {
-    min-width: 100vw;
-    min-height: 100vh;
-    margin: 0;    
-    text-align: center;
-/*     background-color: #19274A; */
-  }
+
+.note-card {  
+  background-color: var(--badge-bg-color-primary);
+}
+
+
+
+.editPage-wrapper {}
+
+
+
+.inputForm {}
+
+
 
 .editButton {
-  align-self: flex-end;
-  /* justify-self: ; */
-  background-color: #EF4343;
-}
-
-
-.note-card {
+  transition: transform 0.3s ease;
+  padding: .5rem;
+  border-radius:.5rem;
+  box-shadow: 5px 2px 1px 1px var(--button-bg-color-tertiary);
+  background-color: var(--button-bg-color-primary);
+  color: var(--button-highlighted-color-secondary);
+  text-decoration: none;
+  font-weight: 500;
   
-  background-color:blanchedalmond;
 }
+
+.editButton:hover {
+    transform: scale(1.1);
+    font-weight: 700;
+  }

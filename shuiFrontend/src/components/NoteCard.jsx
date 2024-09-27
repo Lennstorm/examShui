@@ -1,5 +1,6 @@
 /* Component som exporterar pratbubblorna. */
 import { Link } from "react-router-dom";
+import './NoteCard.css'
 
 function NoteCard({ note, onDelete }) {
     const [noteText, editedTime] = note.text.includes("--Edited at:")
@@ -7,7 +8,7 @@ function NoteCard({ note, onDelete }) {
     : [note.text, null];
 
     return (
-        <div className="note-card">
+        <div className="noteCard-wrapper">
             <p className="created-time">{note.createdAt}</p>
             <p className="noteCard-text">{noteText.trim()}</p>
             {editedTime && (

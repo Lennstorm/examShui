@@ -69,7 +69,7 @@ function EditNotePage() {
     }
 
     return (
-        <div>
+        <div className="editPage-wrapper">
             <h1>{id ? "Redigera trams" : "Nytt trams"}</h1>
             <NoteForm initialText={initialText}
                 initialUsername={initialUsername}
