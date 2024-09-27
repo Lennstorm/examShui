@@ -1,18 +1,74 @@
 # "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: lennstorm
+org: ${file(./local.yml):organisation}
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
 app: examshui-api
 # "service" is the name of this project. This will also be added to your AWS resource names.
 service: examshui
+frameworkVersion: "4"
 
 provider:
   name: aws
   runtime: nodejs20.x
+  region: eu-north-1
+  deploymentMethod: direct
+  iam:
+    role: ${file(./local.yml):iamRole}
+  httpApi:
+    cors: true
+
+build:
+  esbuild:
+    minify: true
+
+package:
+  individually: true        
 
 functions:
-  hello:
-    handler: handler.hello
+  AddNote:
+    handler: functions/AddNote/index.handler
     events:
       - httpApi:
-          path: /
+          path: /api/notes
+          method: post
+
+  GetNote:
+    handler: functions/GetNote/index.handler
+    events:
+      - httpApi:
+          path: /api/notes/{id}
           method: get
+
+  ChangeNote:
+    handler: functions/ChangeNote/index.handler
+    events:
+      - httpApi:
+          path: /api/notes/{id}
+          method: put
+
+  DeleteNote:
+    handler: functions/DeleteNote/index.handler
+    events:
+      - httpApi:
+          path: /api/notes/{id}
+          method: delete
+
+  GetAllNotes:
+    handler: functions/GetAllNotes/index.handler
+    events:
+      - httpApi:
+          path: /api/notes
+          method: get
+
+resources:
+  Resources:
+    NotesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: "shuinotes-table-db"
+        AttributeDefinitions:
+          - AttributeName: id 
+            AttributeType: S # 'S' för string för att kunna använda UUID
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH # Detta är Partition Key
+        BillingMode: PAY_PER_REQUEST # Betalning per användning

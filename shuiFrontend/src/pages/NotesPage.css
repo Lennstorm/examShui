@@ -1,0 +1,57 @@
+.notesPage-wrapper {
+    /* top right bottom left */
+    margin: 3rem 1rem auto 1rem;
+    max-width: 90vw;
+    display: grid;
+}
+
+a, button {
+    margin: 1rem;
+}
+
+.notesPage-editButton {
+    max-width: 20vw;
+    justify-self: center;
+}
+
+.noteCard-wrapper {
+    max-width: 70%;
+    /* top right bottom left */
+    margin: 1rem auto 1rem auto;
+    padding: .5rem;
+}
+
+.noteCard-body {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    /*     max-width: 60%; */
+    background-color: var(--badge-bg-color-primary);
+    border-radius: 1rem;
+}
+
+.created-time {
+    /* top right bottom left */
+    margin: .7rem 0 .2rem .7rem;
+    align-self: flex-start;
+    font-size: .7rem;
+}
+
+.noteCard-text {
+    margin: 1rem 1rem .2rem 1rem;
+}
+
+.edited-time {
+    /* top right bottom left */
+    margin: .5rem .7rem 0 0;
+    align-self: flex-end;
+    font-size: .7rem;
+}
+
+.noteCard-userName {
+    /* top right bottom left */
+    margin: 0 1rem .7rem 0;    
+    align-self: flex-end;
+}
