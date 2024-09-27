@@ -31,6 +31,13 @@ functions:
           path: /api/notes
           method: post
 
+  GetNote:
+    handler: functions/GetNote/index.handler
+    events:
+      - httpApi:
+          path: /api/notes/{id}
+          method: get
+
   ChangeNote:
     handler: functions/ChangeNote/index.handler
     events:

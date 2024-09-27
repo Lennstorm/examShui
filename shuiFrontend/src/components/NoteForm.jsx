@@ -1,4 +1,6 @@
+/* Component som exporterar formuläret för att lägga in en note */
 import { useState, useEffect } from 'react';
+import './NoteForm.css'
 
 function NoteForm({ initialText = "", initialUsername = "", onSubmit, isEditing = false }) {
     const [text, setText] = useState(initialText);
@@ -17,20 +19,20 @@ function NoteForm({ initialText = "", initialUsername = "", onSubmit, isEditing 
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
+        <form className='inputForm' onSubmit={handleSubmit}>
+            <input className='userNameField'
                 type="text"
                 value={username}
                 readOnly={isEditing} // read-only vid redigering av note
                 placeholder='Användarnamn'
                 onChange={(e) => setUsername(e.target.value)}
             />
-            <textarea 
+            <textarea className='inputForm_textArea'
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Skriv trams här!"
             />
-            <button type="submit">{initialText ? "Uppdatera trams!" : "Publicera trams!"}</button>
+            <button className='.inputForm_btn' type="submit">{isEditing ? "Uppdatera trams!" : "Publicera trams!"}</button>
         </form>
     );
 }
