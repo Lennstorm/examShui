@@ -5,27 +5,3 @@
     flex-direction: column;
     align-items: center;
 }
-
-.inputForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.userNameField {
-    margin: 1rem;
-    min-height: 2rem;
-}
-
-.inputForm_textArea {
-    margin: 1rem;     
-    min-height: 10rem;
-}
-
-.inputForm_btn {
-    margin: 1rem;
-}
-
-.deleteButton, .cancelButton {
-    margin: 1rem;
-}

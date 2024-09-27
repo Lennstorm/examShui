@@ -63,7 +63,7 @@ function NotesPage() {
             {notes.map((note) => (
                 <NoteCard key={note.id} note={note} onDelete={handleDelete} />
             ))}
-            <Link to="/new">Skapa nytt trams!</Link>
+            <Link className="notesPage-editButton" to="/new">Skapa nytt trams!</Link>
         </div>
     );
 }

@@ -1,0 +1,20 @@
+.inputForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userNameField {    
+    min-height: 2rem;
+    padding-left: .5rem; 
+    padding-right: .5rem;
+}
+
+.inputForm_textArea {    
+    min-height: 10rem;
+    padding: 0.5rem;
+}
+
+.deleteButton, .cancelButton, .inputForm_btn, .inputForm_textArea, .userNameField {
+    margin: 1rem;
+}
